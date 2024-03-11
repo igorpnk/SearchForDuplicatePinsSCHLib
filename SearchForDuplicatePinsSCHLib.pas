@@ -46,9 +46,8 @@ begin
           begin
                if Pos('"' + SchPins.Designator + '"', txt)>0 then
                begin
-                    tLink.Text := SchPins.Designator;
-                    lbCompName.Caption := LibComponent.LibReference;
-                    ShowMessage('Найдено дублирование пинов в УГО!');
+                    Log.Lines.Add('Name: 'LibComponent.LibReference + ' Pin№' +SchPins.Designator);
+                    //ShowMessage('Найдено дублирование пинов в Компоненте! Прямо сейчас в окне указано имя компонента с дублированием пинов и указан идентификатор пина');
                end
                else
                begin
@@ -63,5 +62,7 @@ begin
         LibComponent := LibIterator.NextSchObject;
      end;
         CurrentLib.SchIterator_Destroy(LibIterator);
+    //ShowMessage('Дублирование пинов более не найдено!');
 end;
+
 

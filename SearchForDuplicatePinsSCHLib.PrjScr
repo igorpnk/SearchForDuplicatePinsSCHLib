@@ -65,7 +65,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Generic_ScriptingSystem]
-StartProcName=UpdFootprintModelLocation.pas>
+StartProcName=SearchForDuplicatePinsSCHLib.pas>
 
 [Generic_Watches]
 0=txt
