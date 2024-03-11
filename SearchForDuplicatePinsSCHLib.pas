@@ -26,7 +26,7 @@ begin
      Begin
         ShowWarning('This is not a schematic library document. Aborting');
         Exit;
-     End;     
+     End;
 
      LibIterator := CurrentLib.SchLibIterator_Create;
      LibIterator.AddFilter_ObjectSet(MkSet(eSchComponent));
@@ -46,7 +46,7 @@ begin
           begin
                if Pos('"' + SchPins.Designator + '"', txt)>0 then
                begin
-                    Log.Lines.Add('Name: '+ LibComponent.LibReference + ' Pin№' +SchPins.Designator);
+                    Log.Lines.Add('Name: '+ LibComponent.LibReference + '   Pin№ ' +SchPins.Designator);
                     //ShowMessage('Найдено дублирование пинов в Компоненте! Прямо сейчас в окне указано имя компонента с дублированием пинов и указан идентификатор пина');
                end
                else
