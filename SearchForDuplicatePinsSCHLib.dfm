@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Search for duplicate pins'
-  ClientHeight = 321
+  ClientHeight = 636
   ClientWidth = 698
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,8 @@ object Form1: TForm1
     Left = 8
     Top = 65
     Width = 664
-    Height = 239
+    Height = 543
+    ScrollBars = ssVertical
     TabOrder = 1
   end
 end

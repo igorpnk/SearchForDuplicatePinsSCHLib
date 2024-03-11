@@ -9,6 +9,7 @@ ImplIterator            : ISch_Iterator;
 LibComponent            : ISch_Component;
 SchPins                 : ISch_Pin;
 txt                     : string;
+dMode                   : string;
 SchModelDatafileLink : ISch_ModelDatafileLink;
 i                    : int;
 
@@ -44,14 +45,16 @@ begin
           txt := '';
           while (SchPins <> Nil) do
           begin
-               if Pos('"' + SchPins.Designator + '"', txt)>0 then
+               dMode := IntToStr(SchPins.OwnerPartDisplayMode);
+
+               if Pos('"' + SchPins.Designator + '_' + dMode + '"', txt)>0 then
                begin
-                    Log.Lines.Add('Name: '+ LibComponent.LibReference + '   Pin№ ' +SchPins.Designator);
+                    Log.Lines.Add('Name: '+ LibComponent.LibReference + '   Pin№ ' +SchPins.Designator + '   Mode№' + dMode);
                     //ShowMessage('Найдено дублирование пинов в Компоненте! Прямо сейчас в окне указано имя компонента с дублированием пинов и указан идентификатор пина');
                end
                else
                begin
-                    txt := txt + '"' + SchPins.Designator + '" ';
+                    txt := txt + '"' + SchPins.Designator + '_' + dMode + '" ';
                end;
                SchPins := ImplIterator.NextSchObject;
           end;
