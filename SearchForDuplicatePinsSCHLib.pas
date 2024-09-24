@@ -33,10 +33,12 @@ begin
      LibIterator.AddFilter_ObjectSet(MkSet(eSchComponent));
      LibComponent := LibIterator.FirstSchObject;
 
+     Log.Lines.Add('Запущен поиск');
+
      while (LibComponent <> Nil) do
      begin
         { Exclude bogus components, such as title blocks. }
-        if (LibComponent.Designator.Text <> '*') then
+        if (LibComponent.Designator.Text <> '') then
         begin
 
           ImplIterator := LibComponent.SchIterator_Create;
@@ -65,6 +67,7 @@ begin
         LibComponent := LibIterator.NextSchObject;
      end;
         CurrentLib.SchIterator_Destroy(LibIterator);
+        Log.Lines.Add('Поиск окончен');
     //ShowMessage('Дублирование пинов более не найдено!');
 end;
 
